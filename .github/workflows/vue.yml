@@ -17,23 +17,15 @@ jobs:
       with:
         node-version: 14
 
-    - name: Change directory
-      working-directory: RivioxTweaks
-      run:
-        echo Changed dir
-
     - name: Install dependencies
       run: npm install
 
     - name: Build Vue.js project
       run: npm run build
 
-    - name: List files in "dist" directory
-      run: ls -R dist
-
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
-        folder: dist
+        folder: RivioxTweaks/dist
