@@ -1,14 +1,31 @@
-name: Build Vue
-on: [push]
+name: Build and Deploy Vue
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  build_vue:
+  build_and_deploy_vue:
     runs-on: ubuntu-latest
-    name: Build Vue
+
     steps:
-    - uses: actions/checkout@v2
-    - id: Build-Vue
-      uses: xRealNeon/VuePagesAction@1.0.1
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
-        username: 'riviox'
-        reponame: 'RivioxTweaks'
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Vue.js project
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: dist
