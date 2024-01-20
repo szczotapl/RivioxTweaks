@@ -28,6 +28,9 @@ jobs:
     - name: Build Vue.js project
       run: npm run build
 
+    - name: List files in "dist" directory
+      run: ls -R dist
+
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
