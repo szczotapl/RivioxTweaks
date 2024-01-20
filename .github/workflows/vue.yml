@@ -11,4 +11,4 @@ jobs:
       with:
         username: 'riviox'
         reponame: 'RivioxTweaks'
-        token: ${{ secrets.GITHUB_TOKEN }} 
+        token: ${{ secrets.GITHUB_TOKEN }}
