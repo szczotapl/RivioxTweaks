@@ -21,7 +21,9 @@ jobs:
       run: npm install --prefix RivioxTweaks
 
     - name: Build Vue.js project
-      run: npm run build --prefix RivioxTweaks
+      working-directory: RivioxTweaks
+      run: npm install && npm run build
+    
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
