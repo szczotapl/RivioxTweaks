@@ -1,0 +1,38 @@
+name: Vue to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to the branch you want to trigger the deployment on
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # You can choose a different runner if needed
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'  # Adjust the Node.js version as needed
+
+      - name: Install dependencies
+        run: npm install  # You might want to use yarn if specified in your config
+
+      - name: Build the Vue.js application
+        run: npm run build  # Adjust the script based on your project setup
+
+      - name: Deploy to GitHub Pages
+        # Replace the commit hash or version with the one you want to use
+        uses: xRealNeon/VuePagesAction@1.0.1
+        with:
+          username: ${{ github.actor }}  # Use the GitHub actor as the username
+          reponame: ${{ github.repository }}  # Use the GitHub repository as the reponame
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use the default GitHub token for authentication
+          gitemail: 'CI@example.com'  # Optional, specify a git commit email
+          gitname: 'CI'  # Optional, specify a git commit name
+          gitmsg: 'deploy'  # Optional, specify a git commit message
+          cname: ''  # Optional, specify a custom domain if applicable
+          useyarn: false  # Optional, specify whether to use yarn for build
