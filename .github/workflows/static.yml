@@ -31,8 +31,8 @@ jobs:
           username: ${{ github.actor }}  # Use the GitHub actor as the username
           reponame: ${{ github.repository }}  # Use the GitHub repository as the reponame
           token: ${{ secrets.GITHUB_TOKEN }}  # Use the default GitHub token for authentication
-          gitemail: 'CI@example.com'  # Optional, specify a git commit email
-          gitname: 'CI'  # Optional, specify a git commit name
+          gitemail: '100956266+riviox@users.noreply.github.com.'  # Optional, specify a git commit email
+          gitname: 'riviox'  # Optional, specify a git commit name
           gitmsg: 'deploy'  # Optional, specify a git commit message
           cname: ''  # Optional, specify a custom domain if applicable
           useyarn: false  # Optional, specify whether to use yarn for build
