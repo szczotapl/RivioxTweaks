@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Cd to RivioxTweaks
-      run: cd RivioxTweaks
-      
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -21,14 +18,14 @@ jobs:
         node-version: 14
 
     - name: Install dependencies
-      run: npm install
+      run: npm install --prefix RivioxTweaks
 
     - name: Build Vue.js project
-      run: npm run build
+      run: npm run build --prefix RivioxTweaks
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
-        folder: dist
+        folder: RivioxTweaks/dist
