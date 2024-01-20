@@ -17,11 +17,15 @@ jobs:
       with:
         node-version: 14
 
+    - name: Change directory
+      working-directory: RivioxTweaks
+      run:
+        echo Changed dir
+
     - name: Install dependencies
-      run: npm install --prefix RivioxTweaks
+      run: npm install
 
     - name: Build Vue.js project
-      working-directory: RivioxTweaks
       run: npm install && npm run build
     
 
