@@ -21,11 +21,11 @@ jobs:
       run: npm install
 
     - name: Build Vue.js project
-      run: npm run build
+      run: npm run build --prefix RivioxTweaks
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
-        folder: dist
+        folder: RivioxTweaks/dist
