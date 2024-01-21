@@ -1,4 +1,5 @@
 name: Build and Deploy Vue
+
 on:
   push:
     branches:
@@ -16,6 +17,9 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 14
+    - name: Change directory
+      run: |
+          cd RivioxTweaks
 
     - name: Install dependencies and Build Vue.js project
       run: |
@@ -27,4 +31,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
-        folder: dist
+        folder: RivioxTweaks/dist
