@@ -4,7 +4,7 @@
         <h3>Made with <i class="devicon-csharp-plain"></i> for <i class="devicon-windows8-original"></i></h3>
         <div class="footer-section">
           <h3>Contact</h3>
-          <p>Email: riviox@riviox.is-a.dev</p>
+          <p>Email: rivioxcontact@gmail.com</p>
         </div>
       </div>
   

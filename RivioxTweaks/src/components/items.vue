@@ -3,11 +3,17 @@ import Item from './item.vue';
 import DocumentationIcon from './icons/IconDocumentation.vue';
 import CommunityIcon from './icons/IconCommunity.vue';
 import SupportIcon from './icons/IconSupport.vue';
+import PictureIcon from './icons/IconPicture.vue';
 import { ref } from 'vue';
 
 const showDocumentation = ref(false);
 const toggleDocumentation = () => {
   showDocumentation.value = !showDocumentation.value;
+};
+
+const showScreenshots = ref(false);
+const toggleScreenshots = () => {
+  showScreenshots.value = !showScreenshots.value;
 };
 </script>
 
@@ -18,11 +24,9 @@ const toggleDocumentation = () => {
         <DocumentationIcon />
       </template>
       <template #heading>Documentation/FAQ</template>
-      RivioxTweaks' <a>Documentation</a>
+      RivioxTweaks' <router-link to="/docs">Documentation</router-link>
       provides you with all the information you need to get started.
-      <template v-if="showDocumentation">
-        <RouterView view="/docs"></RouterView>
-      </template>
+      <router-view v-if="showDocumentation"></router-view>
     </Item>
 
     <Item>
@@ -40,6 +44,15 @@ const toggleDocumentation = () => {
       <template #heading>Support Me</template>
       You can support me
       <a href="https://buymeacoffee.com/riviox" target="_blank" rel="noopener">by becoming a sponsor</a>.
+    </Item>
+
+    <Item @click="toggleScreenshots">
+      <template #icon>
+        <PictureIcon />
+      </template>
+      <template #heading>Screenshots</template>
+      Screenshots are <router-link to="/screenshots">here</router-link>
+      <router-view v-if="showScreenshots"></router-view>
     </Item>
   </div>
 </template>
